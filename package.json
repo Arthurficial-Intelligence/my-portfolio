@@ -15,6 +15,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.4"
   },
   "keywords": [
@@ -23,13 +24,13 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public -b main",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  }
+  ,
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
