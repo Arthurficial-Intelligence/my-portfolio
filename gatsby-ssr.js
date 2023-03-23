@@ -7,6 +7,13 @@
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
-exports.onRenderBody = ({ setHtmlAttributes }) => {
+const React = require("react")
+
+exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   setHtmlAttributes({ lang: `en` })
+  setHeadComponents([
+    <link rel="preconnect" href="https://fonts.googleapis.com" />,
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />,
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />,
+  ])
 }

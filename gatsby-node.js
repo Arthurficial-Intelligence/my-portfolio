@@ -17,14 +17,33 @@ exports.createPages = async ({ actions }) => {
   });
 };
 
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
+const path = require("path")
 
-  if (page.path === "/under-construction/") {
-    deletePage(page);
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              title
+              topic
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
-      ...page,
-      path: "/",
-    });
-  }
-};
+      path: `/journal-entries/${node.frontmatter.slug}`,
+      component: path.resolve(`./src/templates/journal-entry.js`),
+      context: {
+        slug: node.frontmatter.slug,
+      },
+    })
+  })
+}

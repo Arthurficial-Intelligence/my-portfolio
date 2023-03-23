@@ -9,10 +9,9 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Arthurficial intelligence`,
+    description: `Discover a curated hub showcasing my academic research and professional resume, featuring insightful blog articles on a wide array of subjects and in-depth journal entries that delve into specific topics. Immerse yourself in a world of knowledge, innovation, and inspiration – thanks for stoping by. `,
+    author: `Arthur Smith`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -24,6 +23,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `journal-entries`,
+        path: `${__dirname}/journal-entries`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
