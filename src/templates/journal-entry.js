@@ -3,15 +3,16 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 export const query = graphql`
-  query JournalEntryBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+    query JournalEntryBySlug($slug: String!) {
+      markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+        html
+        frontmatter {
+          title
+          topic
+          date(formatString: "MMMM DD, YYYY")
+        }
       }
     }
-  }
 `;
 
 
@@ -21,7 +22,6 @@ const JournalEntry = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )

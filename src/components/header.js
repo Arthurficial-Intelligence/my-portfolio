@@ -32,7 +32,7 @@ const Header = ({ siteTitle }) => (
       >
         <li>
           <Link
-            to="/page-1"
+            to="/journal-entries"
             style={{
               marginLeft: "1rem",
               fontSize: `var(--font-sm)`,
@@ -40,12 +40,12 @@ const Header = ({ siteTitle }) => (
               fontWeight: '700'
             }}
           >
-            Page 1
+            Research Journals
           </Link>
         </li>
         <li>
           <Link
-            to="/page-2"
+            to="/about"
             style={{
               marginLeft: "1rem",
               fontSize: `var(--font-sm)`,
@@ -53,7 +53,7 @@ const Header = ({ siteTitle }) => (
               fontWeight: '700'
             }}
           >
-            Page 2
+            About
           </Link>
         </li>
         {/* Add more links as needed */}

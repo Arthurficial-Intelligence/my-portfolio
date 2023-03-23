@@ -1,27 +1,23 @@
+const path = require("path")
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  // Create the using-dsg page
   createPage({
     path: "/using-dsg",
     component: require.resolve("./src/templates/using-dsg.js"),
     context: {},
     defer: true,
-  });
-};
+  })
 
-const path = require("path")
-
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-
+  // Query for Markdown nodes to use in creating pages
   const result = await graphql(`
     query {
       allMarkdownRemark {
@@ -37,6 +33,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
+  // Create pages for each Markdown file
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: `/journal-entries/${node.frontmatter.slug}`,
