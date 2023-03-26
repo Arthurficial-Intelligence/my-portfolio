@@ -34,10 +34,8 @@ html {
   overflow-y: scroll;
 }
 body {
-  background-color: #f8f8f8;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: var(--color-text);
   font-family: "Montserrat", sans-serif;
   font-weight: normal;
   margin: 0;

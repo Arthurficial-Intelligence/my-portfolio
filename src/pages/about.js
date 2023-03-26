@@ -5,7 +5,11 @@ import Layout from '../components/layout';
 const About = () => {
     return (
         <Layout>
-            <div className="about-container">
+            <div className="about-container"style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+            }}>
                 <h1>About Me</h1>
 
                 <section className="introduction">
