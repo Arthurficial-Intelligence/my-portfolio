@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[589],{5268:function(t,e,a){a.r(e);var r=a(7294),n=a(3668);e.default=t=>{let{data:e}=t;const{markdownRemark:a}=e,{frontmatter:l,html:s}=a;return r.createElement(n.Z,null,r.createElement("div",{dangerouslySetInnerHTML:{__html:s}}))}}}]);
+//# sourceMappingURL=component---src-templates-journal-entry-js-84f3658172d366f781f2.js.map
